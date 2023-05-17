@@ -25,6 +25,19 @@ namespace OskarLAspNet.Helpers.Services
         }
 
         #region Create
+
+        public async Task<Product> CreateAsync(ProductEntity entity)
+        {
+            var _entity = await _productRepo.GetAsync(x => x.ArticleNumber == entity.ArticleNumber);
+            if (_entity == null)
+            {
+                _entity = await _productRepo.AddAsync(entity);
+                if (_entity != null)
+                    return entity;
+            }
+            return null!;
+        }
+
         public async Task<Product> CreateProductAsync(ProductRegVM viewmodel)
         {
             ProductEntity entity = viewmodel;
@@ -59,40 +72,7 @@ namespace OskarLAspNet.Helpers.Services
             return null!;
         }
 
-        //TEST
-        /*public async Task<Product> CreateProductAsync(ProductRegVM viewModel)
-        {
-            ProductEntity entity = viewModel;
-
-
-            //2:29:00 f.10. kollar så att kategorin finns innan produkt skapas.
-            if (await _productCategoryService.GetCategoryAsync(entity.ProductCategoryId) != null)
-            {
-                entity = await _productRepo.AddAsync(entity);
-                if (entity != null)
-                {
-
-                    //Lägg till taggar
-                    foreach (var tagName in viewModel.Tags)
-                    {
-                        var tag = await _tagService.GetTagAsync(tagName);
-
-                        //finns inte tag, skapar tag
-                        tag ??= await _tagService.CreateTagAsync(tagName);
-
-
-                        //kopplar ihop
-                        await _productTagRepo.AddAsync(new ProductTagEntity
-                        {
-                            ArticleNumber = entity.ArticleNumber,
-                            TagId = tag.Id,
-                        });
-                    }
-                    return await GetProductAsync(entity.ArticleNumber);
-                }
-            }
-            return null!;
-        }*/
+        
         #endregion
 
         public async Task<IEnumerable<ProductEntity>> GetAllAsync()
@@ -154,13 +134,30 @@ namespace OskarLAspNet.Helpers.Services
             catch { return false; }
         }
 
-
-
         //TEST
         public IEnumerable<Product> GetProductsByTagId(int tagId)
         {
             var products = _productRepo.GetProductsByTagId(tagId);
             return products.Select(p => (Product)p).ToList();
+        }
+
+
+
+
+
+        public async Task AddProductTagsAsync(ProductEntity entity, string[] tags)
+        {
+            foreach (var tag in tags)
+            {
+                await _productTagRepo.AddAsync(new ProductTagEntity
+                {
+                    ArticleNumber = entity.ArticleNumber,
+                    TagId = int.Parse(tag),
+
+
+
+                });
+            }
         }
 
     }

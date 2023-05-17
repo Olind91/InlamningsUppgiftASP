@@ -38,10 +38,15 @@
             <span asp-validation-for="CategoryID" class="small text-danger"></span>
         </div>
 
-        <div class="mb-3">
-            <label asp-for="Tags" class="form-label">Add tag. "new/featured/popular"</label>
-            <input asp-for="Tags" class="form-control" />
-            <span asp-validation-for="Tags" class="small text-danger"></span>
+
+        <div class="mb-5">
+            @foreach (SelectListItem tag in ViewBag.Tags)
+            {
+                <div class="form-check form-check-inline mb-2">
+                    <input type="checkbox" name="Tags" id="tag-@tag.Text-@tag.Value" value="@tag.Value" checked="@tag.Selected" id="@tag.Value" class="form-check-input" />
+                    <label for="tag-@tag.Text-@tag.Value" class="small form-check-label mr-2">@tag.Text</label>
+                </div>
+            }
         </div>
 
         <div class="mb-3">

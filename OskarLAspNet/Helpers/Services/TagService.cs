@@ -1,4 +1,5 @@
-﻿using OskarLAspNet.Helpers.Repos;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using OskarLAspNet.Helpers.Repos;
 using OskarLAspNet.Models.Dtos;
 using OskarLAspNet.Models.Entities;
 using OskarLAspNet.Models.ViewModels;
@@ -109,5 +110,48 @@ namespace OskarLAspNet.Helpers.Services
 
 
 
+        //TEST
+        public async Task<List<SelectListItem>> GetTagsAsync()
+        {
+            var tags = new List<SelectListItem>();
+
+
+
+            foreach (var tag in await _tagRepo.GetAllAsync())
+            {
+                tags.Add(new SelectListItem
+                {
+                    Value = tag.Id.ToString(),
+                    Text = tag.TagName
+
+
+
+                });
+            }
+            return tags;
+        }
+
+
+
+        public async Task<List<SelectListItem>> GetTagsAsync(string[] selectedTags)
+        {
+            var tags = new List<SelectListItem>();
+
+
+
+            foreach (var tag in await _tagRepo.GetAllAsync())
+            {
+                tags.Add(new SelectListItem
+                {
+                    Value = tag.Id.ToString(),
+                    Text = tag.TagName,
+                    Selected = selectedTags.Contains(tag.Id.ToString())
+
+
+
+                });
+            }
+            return tags;
+        }
     }
 }
