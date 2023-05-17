@@ -1,0 +1,26 @@
+﻿@model CategoryRegVM
+@{
+    ViewData["Title"] = "Register new Category";
+}
+
+
+<div class="container">
+    <form method="post" asp-action="Create" novalidate>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+        <div class="mb-3">
+            <label asp-for="CategoryName" class="form-label">New Category</label>
+            <input asp-for="CategoryName" class="form-control" />
+            <span asp-validation-for="CategoryName" class="small text-danger"></span>
+        </div>
+
+
+
+        <div>
+            <button class="btn btn-success">HORAY!</button>
+        </div>
+
+    </form>
+</div>

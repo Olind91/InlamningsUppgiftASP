@@ -1,0 +1,42 @@
+﻿
+    
+
+@model IEnumerable<ProductEntity>
+@{
+    ViewData["Title"] = "Admin";
+}
+
+
+<div class="container">
+
+    <h1 class="collection-title">All Products</h1>
+
+
+    <div class="collection-grid">
+
+        @foreach (var product in Model)
+        {
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">@product.ArticleNumber</h5>
+                    <p class="">
+                        <div>@product.ProductName</div>
+                        <div>@product.ProductDescription</div>
+                        <div>@product.Price</div>
+                        <div>@product.ProductCategory</div>
+                        <div class="buttons">
+                            <a class="link btn btn-danger" asp-controller="Admin" asp-action="Index">Delete Product</a>
+                            <a class="link btn btn-success" asp-controller="Admin" asp-action="Index">Update Product</a>
+                        </div>
+                    </p>
+
+                </div>
+            </div>
+
+        }
+        
+        <a class="link btn btn-primary" asp-controller="Admin" asp-action="Index">Back to admin dashboard</a>
+
+    </div>
+
+</div>

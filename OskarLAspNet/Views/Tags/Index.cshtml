@@ -1,0 +1,11 @@
+﻿@model IEnumerable<TagEntity>
+@{
+    ViewData["Title"] = "Tags";
+}
+
+@foreach (var tag in Model)
+{
+    <div>
+        @tag.TagName
+    </div>
+}

@@ -1,0 +1,61 @@
+﻿
+@model IEnumerable<Product>
+
+
+
+
+
+<section class="best-collection">
+    <div class="container">
+
+        <h1 class="collection-title">Best Collection</h1>
+        <ul class="categories">
+            <li class="category-item">All</li>
+            <li class="category-item">Bag</li>
+            <li class="category-item">Dress</li>
+            <li class="category-item">Decoration</li>
+            <li class="category-item">Essentials</li>
+            <li class="category-item">Interior</li>
+            <li class="category-item">Laptop</li>
+            <li class="category-item">Mobile</li>
+            <li class="category-item">Beaty</li>
+        </ul>
+
+        <div class="collection-grid">
+            
+
+            
+
+
+            @foreach (var product in Model)
+            {
+                {
+                    var link = $"products/{product.ArticleNumber}";
+                    <div class="collection-grid">
+
+                        <!-- collection-item start -->
+                        <a href="@Url.Action("ProductDetails", "Products", new { productId = product.ArticleNumber })" class="collection-item">
+
+                            <img src="~/images/products/@product.ImageUrl" alt="@product.ProductName" height="50" width="50">
+                            <div class="body">
+                                <div class="title">@product.ProductName</div>
+                                <div class="info">
+                                    @product.ProductDescription
+                                    <i class="add-cart fa-regular fa-cart-plus"></i>
+                                </div>
+                                <div class="price">@product.Price$</div>
+                                
+
+                            </div>
+                        </a>
+                    </div>
+                }
+
+            }
+
+        </div>
+        <div class="load-more">
+            <button class="btn-outline-white">LOAD MORE <i class="fa-solid fa-rotate-right"></i></button>
+        </div>
+    </div>
+</section>

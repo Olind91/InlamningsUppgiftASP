@@ -1,0 +1,98 @@
+@import '../core/_colors.scss';
+@import '../core/_fonts.scss';
+@import '../core/_mixins.scss';
+
+.register-form {
+    padding: 20px 0 60px 0;
+
+    @include lg {
+        padding: 60px 0;
+    }
+
+    .container {
+        border: 0px solid $color-dark-5;
+        padding: 30px;
+
+        @include md {
+            border: 1px solid $color-dark-5;
+        }
+    }
+
+    .title {
+        margin-bottom: 40px;
+    }
+
+    form {
+        display: grid;
+        column-gap: 30px;
+        row-gap: 30px;
+        grid-template-columns: 1fr;
+        grid-template-areas: "firstname" "lastname" "streetname" "companyName" "postalcode" "city" "mobile" "email" "password" "confirmpassword" "profileimage" "terms" "button";
+
+        @include lg {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "firstname lastname" "streetname streetname" "postalcode city" "mobile company" "email email" "password password" "confirmpassword confirmpassword" "profileimage profileimage" "terms terms" "button button";
+        }
+
+        .firstname {
+            grid-area: firstname;
+        }
+
+        .lastname {
+            grid-area: lastname;
+        }
+
+        .streetname {
+            grid-area: streetname;
+        }
+
+        .companyName {
+            grid-area: companyName;
+        }
+
+        .postalcode {
+            grid-area: postalcode;
+        }
+
+        .city {
+            grid-area: city;
+        }
+
+        .mobile {
+            grid-area: mobile;
+        }
+
+        .email {
+            grid-area: email;
+        }
+
+        .password {
+            grid-area: password;
+        }
+
+        .confirmpassword {
+            grid-area: confirmpassword;
+        }
+
+
+        .profileimage {
+            grid-area: profileimage;
+        }
+
+
+        .terms {
+            grid-area: terms;
+            margin: 10px 0;
+        }
+
+
+        button {
+            grid-area: button;
+
+            @include lg {
+                display: flex;
+                justify-self: flex-start;
+            }
+        }
+    }
+}

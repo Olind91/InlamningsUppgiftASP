@@ -1,0 +1,41 @@
+﻿@model List<AppUser>
+@inject UserManager<AppUser> UserManager
+
+<div class="container">
+    @foreach (var user in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Firstname: @user.FirstName</h5>
+                <div>Lastname: @user.LastName</div>
+                <div>Companyname: @user.CompanyName</div>
+                <div>@user.ImageUrl</div>
+                <div>Email: @user.Email</div>
+
+                <h6>Roles:</h6>
+                <ul>
+                    @if (User?.Identity?.IsAuthenticated == true)
+                    {
+                        var roles = await UserManager.GetRolesAsync(user);
+                        foreach (var role in roles)
+                        {
+                            <li>@role</li>
+                        }
+                    }
+                </ul>
+
+                <div class="buttons">
+                    <a class="link btn btn-danger" asp-controller="Admin" asp-action="Index">Delete user</a>
+                    <a class="link btn btn-success" asp-controller="Admin" asp-action="Index">Update user</a>
+                </div>
+            </div>
+        </div>
+    }
+
+   
+    <a class="link btn btn-primary" asp-controller="Admin" asp-action="Index">Back to admin dashboard</a>
+</div>
+
+
+   
+   

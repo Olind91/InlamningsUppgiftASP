@@ -1,0 +1,26 @@
+﻿@model TagRegVM
+@{
+    ViewData["Title"] = "Register new Tag";
+}
+
+
+<div class="container">
+    <form method="post" asp-action="Create" novalidate>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+        <div class="mb-3">
+            <label asp-for="TagName" class="form-label">New Tagname</label>
+            <input asp-for="TagName" class="form-control" />
+            <span asp-validation-for="TagName" class="small text-danger"></span>
+        </div>
+
+
+
+        <div>
+            <button class="btn btn-success">HORAY!</button>
+        </div>
+
+    </form>
+</div>

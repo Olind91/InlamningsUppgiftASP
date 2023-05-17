@@ -1,0 +1,14 @@
+@import '../core/_colors.scss';
+@import '../core/_fonts.scss';
+@import '../core/_mixins.scss';
+
+.map {
+    iframe {
+        width: 100%;
+        height: 250px;
+
+        @include lg {
+            height: 400px;
+        }
+    }
+}

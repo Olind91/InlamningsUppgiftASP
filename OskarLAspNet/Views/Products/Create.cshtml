@@ -1,0 +1,61 @@
+﻿@model ProductRegVM
+
+
+
+
+
+<div class="container">
+    <form enctype="multipart/form-data" method="post" asp-action="Create" novalidate>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+        <div class="mb-3">
+            <label asp-for="ArticleNumber" class="form-label">Article Number</label>
+            <input asp-for="ArticleNumber" class="form-control" />
+            <span asp-validation-for="ArticleNumber" class="small text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ProductName" class="form-label">Product Name</label>
+            <input asp-for="ProductName" class="form-control" />
+            <span asp-validation-for="ProductName" class="small text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Price" class="form-label">Product Price</label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="small text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="ProductDescription" class="form-label">Product Description</label>
+            <input asp-for="ProductDescription" class="form-control" />
+            <span asp-validation-for="ProductDescription" class="small text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CategoryID" class="form-label">Category ID</label>
+            <input asp-for="CategoryID" class="form-control" />
+            <span asp-validation-for="CategoryID" class="small text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Tags" class="form-label">Add tag. "new/featured/popular"</label>
+            <input asp-for="Tags" class="form-control" />
+            <span asp-validation-for="Tags" class="small text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Image" class="form-label">Add Image</label>
+            <input asp-for="Image" class="form-control" />
+            <span asp-validation-for="Image" class="small text-danger"></span>
+        </div>
+
+
+
+
+        <div>
+            <button class="btn btn-success">HORAY!</button>
+        </div>
+
+    </form>
+</div>

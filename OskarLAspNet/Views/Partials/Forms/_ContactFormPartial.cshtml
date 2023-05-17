@@ -1,0 +1,146 @@
+﻿@model ContactFormVM
+@{
+    ViewData["Title"] = "Contact us!";
+}
+
+<section class="contact-form">
+    <div class="container">
+        <form method="post" asp-controller="Contacts" asp-action="SubmitContactForm" novalidate>
+            <div asp-validation-summary="ModelOnly" class="form-group error"></div>
+
+            <div class="name form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name" class="error"></span>
+            </div>
+
+            <div class="email form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" />
+                <span asp-validation-for="Email" class="error"></span>
+            </div>
+
+            <div class="phoneNumber form-group">
+                <label asp-for="PhoneNumber"></label>
+                <input asp-for="PhoneNumber" />
+                <span asp-validation-for="PhoneNumber" class="error"></span>
+            </div>
+
+            <div class="companyName form-group">
+                <label asp-for="Company"></label>
+                <input asp-for="Company" />
+                <span asp-validation-for="Company" class="error"></span>
+            </div>
+
+            <div class="message form-group">
+                <label asp-for="Comment"></label>
+                <textarea id="message" asp-for="Comment"></textarea>
+                <span asp-validation-for="Comment" class="error"></span>
+            </div>
+
+            <div class="terms form-checkbox-group">
+                <label class="custom-checkbox">
+                    <label asp-for="SaveMyData"></label>
+                    <input asp-for="SaveMyData" />
+                    <span class="checkmark"></span>
+                </label>
+                <span asp-validation-for="SaveMyData" class="error"></span>
+            </div>
+
+            <button class="btn-theme">Submit</button>
+        </form>
+    </div>
+</section>
+
+
+
+<!-- 
+<section class="contact-form">
+    <div class="container">
+        <div class="title">Write something</div>
+
+        <form novalidate>
+            <div class="name form-group">
+                <label for="name">Your Name*</label>
+                <input id="name" type="text" class="invalid" required>
+                <span class="error">Your name is required</span>
+            </div>
+            <div class="email form-group">
+                <label for="email">Your Email*</label>
+                <input id="email" type="text" class="invalid">
+                <span class="error">Your email is required</span>
+            </div>
+            <div class="phoneNumber form-group">
+                <label for="phone">Phone Number (optional)</label>
+                <input id="phone" type="text">
+            </div>
+            <div class="companyName form-group">
+                <label for="company">Company (optional)</label>
+                <input id="company" type="text">
+            </div>
+            <div class="message form-group">
+                <label for="message">Message*</label>
+                <textarea id="message" class="invalid"></textarea>
+                <span class="error">Message is required</span>
+            </div>
+            <div class="terms form-checkbox-group">
+                <label class="custom-checkbox">
+                    Save my name, email in the this browser for the next time I comment. //ska ligga i VM
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            <button class="btn-theme">Submit</button>
+        </form>
+    </div>
+</section>
+-->
+
+
+       <!--  <form method="post" novalidate>
+            <div asp-validation-summary="ModelOnly" class="form-group error"></div>
+
+            <div class="firstname form-group">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" />
+                <span asp-validation-for="FirstName" class="error"></span>
+            </div>
+
+            <div class="lastname form-group">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" />
+                <span asp-validation-for="LastName" class="error"></span>
+            </div>
+
+            <div class="streetname form-group">
+                <label asp-for="StreetName"></label>
+                <input asp-for="StreetName" />
+                <span asp-validation-for="StreetName" class="error"></span>
+            </div>
+
+            <div class="postalcode form-group">
+                <label asp-for="PostalCode"></label>
+                <input asp-for="PostalCode" />
+                <span asp-validation-for="PostalCode" class="error"></span>
+            </div>
+
+            <div class="city form-group">
+                <label asp-for="City"></label>
+                <input asp-for="City" />
+                <span asp-validation-for="City" class="error"></span>
+            </div>
+          
+            <div class="terms form-checkbox-group">
+                <label class="custom-checkbox">
+                    <label asp-for="TermsAndAgreement"></label>
+                    <input asp-for="TermsAndAgreement" />
+                    <span class="checkmark"></span>
+                </label>
+                <span asp-validation-for="TermsAndAgreement" class="error"></span>
+            </div>
+
+            <button class="btn-theme">Submit</button>
+ </form>-->
+
+
+

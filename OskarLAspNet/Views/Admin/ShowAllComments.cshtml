@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ContactFormEntryEntity>
+
+
+<div class="container">
+@foreach (var comment in Model)
+{
+
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header">Comment Registered: @comment.DateTime</div>
+        <div class="card-body">
+                <h5 class="card-title">@comment.Name</h5>
+                <p class="card-text">@comment.Comment</p>
+                <h5 class="card-title">Email: @comment.Email</h5>
+                <h5 class="card-title">Mobile: @comment.PhoneNumber</h5>
+                <h5 class="card-title">Company: @comment.Company</h5>
+                <div class="buttons">
+                    <a class="link btn btn-danger" asp-controller="Admin" asp-action="Index">Delete Comment</a>
+                    
+                </div>
+        </div>
+        
+    </div>
+
+
+}
+<a class="link btn btn-primary" asp-controller="Admin" asp-action="Index">Back to admin dashboard</a>
+</div>
