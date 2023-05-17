@@ -9,11 +9,13 @@ namespace OskarLAspNet.Models.ViewModels
         //Validering går bara vid knapptryckning med C#
 
         [Display(Name = "First Name")]
+        [MinLength(2, ErrorMessage = "Your first name need to be atleast 2 characters long")]
         [Required(ErrorMessage = "Please fill in a Firstname")] //Ändrar på errormeddelande vid failad registrering
         [RegularExpression(@"^[a-öA-Ö]+(?:[ é'-][a-öA-Ö]+)*$", ErrorMessage = "You need to fill in a valid firstname")] //Regex  First+lastname
         public string FirstName { get; set; } = null!;
 
         [Display(Name = "Last Name")]
+        [MinLength(2, ErrorMessage = "Your last name need to be atleast 2 characters long")]
         [Required(ErrorMessage = "Please fill in a Lastname")]
         [RegularExpression(@"^[a-öA-Ö]+(?:[ é'-][a-öA-Ö]+)*$", ErrorMessage = "You need to fill in a valid lastname")]
         public string LastName { get; set; } = null!;
@@ -27,10 +29,10 @@ namespace OskarLAspNet.Models.ViewModels
         [Display(Name = "City")]
         public string City { get; set; } = null!;
 
-        [Display(Name = "Mobile")]
+        [Display(Name = "Mobile (Optional)")]
         public string? Mobile { get; set; }
 
-        [Display(Name = "Company")]
+        [Display(Name = "Company (Optional)")]
         public string? Company { get; set; }
 
 
@@ -60,7 +62,7 @@ namespace OskarLAspNet.Models.ViewModels
 
 
         //IFormFile används vid filuppladdningar
-        [Display(Name = "Profile Image")]
+        [Display(Name = "Profile Image (Optional)")]
         [DataType(DataType.Upload)]
         public IFormFile? ImageFile { get; set; }
 

@@ -1,25 +1,19 @@
-﻿
-    
-
-@model IEnumerable<ProductEntity>
+﻿@model IEnumerable<ProductEntity>
 @{
     ViewData["Title"] = "Admin";
 }
 
 
 <div class="container">
-
     <h1 class="collection-title">All Products</h1>
 
-
-    <div class="collection-grid">
-
+    <div class="row">
         @foreach (var product in Model)
         {
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">@product.ArticleNumber</h5>
-                    <p class="">
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.ArticleNumber</h5>
                         <div>@product.ProductName</div>
                         <div>@product.ProductDescription</div>
                         <div>@product.Price</div>
@@ -28,15 +22,13 @@
                             <a class="link btn btn-danger" asp-controller="Admin" asp-action="Index">Delete Product</a>
                             <a class="link btn btn-success" asp-controller="Admin" asp-action="Index">Update Product</a>
                         </div>
-                    </p>
-
+                    </div>
                 </div>
             </div>
-
         }
-        
-        <a class="link btn btn-primary" asp-controller="Admin" asp-action="Index">Back to admin dashboard</a>
-
     </div>
 
+    <a class="link btn btn-primary" asp-controller="Admin" asp-action="Index">Back to admin dashboard</a>
 </div>
+
+
